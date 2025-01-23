@@ -30,12 +30,12 @@ const PaymentButton = () => {
       );
 
       if (response.ok) {
-        const { hash, merchant_id } = await response.json();
+        const { data } = await response.json();
 
         // Payment configuration
         const payment = {
           sandbox: true, // Use sandbox for testing
-          merchant_id: merchant_id,
+          merchant_id: process.env.REACT_APP_MERCHANT_ID,
           return_url: "http://localhost:3000/payment/success", // Replace with your return URL
           cancel_url: "http://localhost:3000/payment/cancel", // Replace with your cancel URL
           notify_url: process.env.REACT_APP_NOTIFY_URL, // Replace with your notify URL - This should be public IP (No Localhost)
@@ -50,7 +50,7 @@ const PaymentButton = () => {
           address: paymentDetails.address,
           city: paymentDetails.city,
           country: paymentDetails.country,
-          hash: hash,
+          hash: data,
         };
 
         // Initialize PayHere payment
