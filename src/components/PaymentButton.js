@@ -4,8 +4,8 @@ import React from "react";
 const PaymentButton = () => {
   const handlePayment = async () => {
     const paymentDetails = {
-      order_id: "ItemNo12345",
-      amount: "1005.00",
+      order_id: "670a6f3c9cb796b5d7c2320c",
+      amount: "2600.00",
       currency: "LKR",
       first_name: "Saman",
       last_name: "Perera",
